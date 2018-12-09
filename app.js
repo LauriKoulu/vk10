@@ -1,11 +1,10 @@
 var express = require('express');
-var jsonServer = require('json-server');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var cors = require('cors')
+var cors = require('cors');
 var errorHandler = require('errorhandler');
 
 //var indexRouter = require('./routes/index');
@@ -31,7 +30,7 @@ app.use(require('./routes'));
 
 // view engine setup. not really needed but whatever
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 // router for the json database
 //app.use('/api', jsonServer.router('db.json'));
@@ -44,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 //app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'passport-tutorial', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
+app.use(session({ secret: 'somestupidsecret', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // router. doesn't do anything right now since we are serving the page as static file
 //app.use('/', indexRouter);
