@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  template
+    ul
+    each item in items_list
+      li #{item.name}
+    else
+      li There are no items yet.
